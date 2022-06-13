@@ -1,0 +1,34 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.posts {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 1em auto;
+    text-align: justify;
+    gap: 0.8em;
+    overflow: hidden;
+    border-radius: 1em;
+}
+
+.posts__header {
+    background-color: #efdfff;
+    display: flex;
+    justify-content: center;
+}
+
+.posts__title {
+    background-color: #efdfff !important;
+    text-indent: 20px;
+    text-transform: uppercase;
+}
+
+.posts__body {
+    padding: 8px 16px !important ;
+    background-color: #e3c6ff;
+    text-indent: 20px;
+}
