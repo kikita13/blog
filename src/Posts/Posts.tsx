@@ -21,7 +21,7 @@ const Posts = () => {
         ([posts, users]) => {
           setIsLoaded(true);
           const usersObj = Object.fromEntries(
-            users.map((user: { id: any }) => [user.id, user])
+            users.map((user: any) => [user.id, user])
           );
           setData(
             posts.map((post: Post) => ({
