@@ -38,8 +38,8 @@ const Nav = (props: Props) => {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <Link className="link" to={item}>
-            <ListItem key={item} disablePadding>
+          <Link key={item} className="link" to={item}>
+            <ListItem disablePadding>
               <ListItemButton sx={{ textAlign: "center" }}>
                 <ListItemText primary={item} />
               </ListItemButton>
@@ -75,8 +75,8 @@ const Nav = (props: Props) => {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Link className="link" to={item}>
-                <Button key={item} sx={{ color: "#fff" }}>
+              <Link key={item} className="link" to={item}>
+                <Button sx={{ color: "#fff" }}>
                   {item}
                 </Button>
               </Link>
@@ -109,7 +109,6 @@ const Nav = (props: Props) => {
         <Routes>
           <Route path="Posts" element={<Posts />}></Route>
           <Route path="Users" element={<Users />}></Route>
-          <Route path="Users" element={<NotFoundPage />}></Route>
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
       </Box>

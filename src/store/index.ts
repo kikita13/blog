@@ -1,17 +1,15 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
+import { State } from "./models/state";
+import { postsReducer } from "./posts/postsSlice";
+import { usersReducer } from "./users/usersSlice";
 
-import postsReducer from "./reducers/postsSlice";
-
-const reducer = combineReducers({
-    posts: postsReducer
+export const store = configureStore<State>({
+    reducer: {
+        posts: postsReducer,
+        users: usersReducer
+    }
 });
-
-const store = configureStore({
-    reducer
-})
 
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch: () => AppDispatch = useDispatch;
-
-export default store;

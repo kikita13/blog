@@ -2,25 +2,30 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../store";
 import { State } from "../../store/models/state";
-import { loadPosts } from "../../store/reducers/postsSlice";
+import { User } from "../../store/users/models/users-state";
+import { fetchUsers } from "../../store/users/usersSlice";
 
 
 const Users = () => {
-  const posts = useSelector((state: State) => state.posts.posts);
-  const isLoading = useSelector((state: State) => state.posts.isLoading);
-
+  const users = useSelector((state: State) => state.users.users);
+  const status = useSelector((state: State) => state.users.status);
   const dispatch = useAppDispatch();
 
-  // TODO: разобраться почему useEffect вызывается несколько раз
+  // // TODO: разобраться почему useEffect вызывается несколько раз
   useEffect(() => {
-    dispatch(loadPosts());
-  }, []);
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   return (
     <div>
-      {isLoading ? <div>ЗАГРУЗКА БЛЯТЬ</div> : ""}
+      {status}
+      {users.map((user: User) => (
+        <div key={user.id}>{user.id}</div>
+      ))}
 
-      {posts.map((post) => JSON.stringify(post))}
+      {/* {isLoading ? <div>ЗАГРУЗКА БЛЯТЬ</div> : ""}
+
+      {posts.map((post) => JSON.stringify(post))} */}
     </div>
   );
 };
