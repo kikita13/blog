@@ -1,21 +1,5 @@
-
-export interface Geo {
-    lat: number,
-    lng: number
-};
-
-export interface Company {
-    name: string,
-    catchPhrase: string,
-    bs: string
-};
-
-export interface Address {
-    street: string,
-    suite: string,
-    city: string,
-    zipcode: string,
-};
+import { Address } from "./users-address";
+import { Geo } from "./users-geo";
 
 export interface User {
     id: number,

@@ -7,7 +7,7 @@ import { usersReducer } from "./users/usersSlice";
 export const store = configureStore<State>({
     reducer: {
         posts: postsReducer,
-        users: usersReducer
+        users: usersReducer,
     }
 });
 

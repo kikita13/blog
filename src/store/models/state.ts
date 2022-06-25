@@ -3,5 +3,5 @@ import { UsersState } from "../users/models/users-state";
 
 export interface State {
     posts: PostsState,
-    users: UsersState
+    users: UsersState,
 }

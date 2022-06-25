@@ -1,4 +1,5 @@
-import { Address, User } from "../models/users-state";
+import { User } from "../models/users-state";
+import {Address} from '../models/users-address'
 
 interface GeoDto {
     lat: string,

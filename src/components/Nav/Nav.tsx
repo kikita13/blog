@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -18,9 +19,10 @@ import Posts from "../Posts/Posts";
 import Users from "../Users/Users";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import "./Nav.css";
+import { LINKS } from "./consts/links";
 
 const drawerWidth = 240;
-const navItems = ["Posts", "Users", "Other"];
+
 
 const Nav = (props: Props) => {
   const { window } = props;
@@ -37,11 +39,11 @@ const Nav = (props: Props) => {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <Link key={item} className="link" to={item}>
+        {LINKS.map((link) => (
+          <Link key={link.url} className="link" to={link.url}>
             <ListItem disablePadding>
               <ListItemButton sx={{ textAlign: "center" }}>
-                <ListItemText primary={item} />
+                <ListItemText primary={link.title} />
               </ListItemButton>
             </ListItem>
           </Link>
@@ -55,7 +57,7 @@ const Nav = (props: Props) => {
 
   return (
     <Box>
-      <AppBar sx={{backgroundColor: "#eebfff"}} component="nav">
+      <AppBar component="nav">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -74,10 +76,10 @@ const Nav = (props: Props) => {
             KEKET.INK
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Link key={item} className="link" to={item}>
+            {LINKS.map((link) => (
+              <Link key={link.url} className="link" to={link.url}>
                 <Button sx={{ color: "#fff" }}>
-                  {item}
+                  {link.title}
                 </Button>
               </Link>
             ))}
@@ -107,8 +109,8 @@ const Nav = (props: Props) => {
       <Box>
         <Toolbar />
         <Routes>
-          <Route path="Posts" element={<Posts />}></Route>
-          <Route path="Users" element={<Users />}></Route>
+          <Route path="posts" element={<Posts />}></Route>
+          <Route path="users/*" element={<Users />}></Route>
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
       </Box>
