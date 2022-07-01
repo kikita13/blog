@@ -48,8 +48,6 @@ const usersSlice = createSlice({
         });
         builder.addCase(fetchUsers.rejected, (state, action) => {
             state.status = 'Ошибка';
-
-            console.log(action);
         });
     }
 });

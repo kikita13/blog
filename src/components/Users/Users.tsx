@@ -6,7 +6,7 @@ import { UserPage } from "./pages/UserPage/UserPage";
 import { UsersPage } from './pages/UsersPage/UsersPage';
 
 
-const Users = () => {
+export const Users = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+

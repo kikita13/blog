@@ -5,12 +5,12 @@ import { useAppDispatch } from "../../../../store";
 import { State } from "../../../../store/models/state";
 import { User } from "../../../../store/users/models/users-state";
 import { UserCard } from "./components/UserCard/UserCard";
-import { fetchUsers } from "../../../../store/users/usersSlice";
+import {fetchUsers } from "../../../../store/users/usersSlice";
 
 export const UsersPage = () => {
   const dispatch = useAppDispatch();
   const users = useSelector((state: State) => state.users.users);
-
+  
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);

@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import React, { ComponentProps } from 'react';
 import { User } from '../../../../../../store/users/models/users-state';
 
 

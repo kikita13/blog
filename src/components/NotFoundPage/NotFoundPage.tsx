@@ -1,6 +1,5 @@
-import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import Posts from "../Posts/Posts";
+import { Posts } from "../Posts/Posts";
 import "./NotFoundPage.css";
 
 const NotFoundPage = () => {
@@ -8,7 +7,7 @@ const NotFoundPage = () => {
   return (
     
     <div className="NotFoundPage">
-      <Link to='Posts'>
+      <Link to='posts'>
       <div className="Btn">
         <div className="Btn__text">Где это я?</div>
       </div>
@@ -20,7 +19,7 @@ const NotFoundPage = () => {
         </span>
       </div>
       <Routes>
-        <Route path="Posts" element={<Posts />}/>
+        <Route path="posts" element={<Posts />}/>
       </Routes>
     </div>
   );

@@ -1,6 +1,5 @@
 import { Card, CardContent, Divider, Grid } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
 import { User } from "../../../../../../store/users/models/users-state";
 import { UserCardAvatar } from "./UserCardAvatar";
 import { UserCardBody } from "./UserCardBody";
@@ -10,7 +9,11 @@ import { UserCardTitle } from "./UserCardTitle";
 
 export const UserCard = ({ user }: { user: User }) => {
   return (
-    <Grid key={user.id} item xs={12} md={6}>
+    <Grid 
+      key={user.id} 
+      item 
+      xs={12} 
+      md={6}>
       <Card>
         <UserCardMedia />
         <CardContent>
