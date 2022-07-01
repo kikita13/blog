@@ -6,12 +6,12 @@ import { Post } from "../../../../store/posts/models/posts-state";
 import { User } from "../../../../store/users/models/users-state";
 
 export const PostPage = () => {
+  
   const posts = useSelector((state: State) => state.posts.posts);
   const users = useSelector((state: State) => state.users.users);
   const { id } = useParams();
-  const postId = +(id ?? 0);
+  const postId = +(id ?? 1);
   const post = posts.find((post: Post) => post.id === postId);
-
   const user = users.find((user: User) => user.id === post?.userId)
 
   return post ? (
@@ -22,7 +22,7 @@ export const PostPage = () => {
       }}>
         {post.body}
         <br/>
-        %{user?.name}%
+       % {user?.name}%
     </Container>
   ) : (
     <div>Не найден</div>
