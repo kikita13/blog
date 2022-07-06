@@ -9,7 +9,6 @@ export const PostCardContent = ({post}: {post: Post}) => {
       </Typography>
       <Divider />
       <Typography>{post.body}</Typography>
-      <Divider />
     </CardContent>
   );
 };

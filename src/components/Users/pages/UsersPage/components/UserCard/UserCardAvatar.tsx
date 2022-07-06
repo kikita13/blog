@@ -1,7 +1,7 @@
 import { Avatar, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { User } from '../../../../../../store/users/models/users-state';
-import { urlavatar } from '../../../../consts/links';
+import { URLAVATAR } from '../../../../consts/links';
 
 export const UserCardAvatar = ({ user }: { user: User }) => {
     return (
@@ -10,7 +10,7 @@ export const UserCardAvatar = ({ user }: { user: User }) => {
           title={user.name}
           >
           <Avatar
-          src={urlavatar}
+          src={`${URLAVATAR}?random=${Math.random()}`}
           />
         </Tooltip>
       </Link>

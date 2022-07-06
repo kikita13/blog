@@ -6,6 +6,7 @@ import { State } from "../../../../store/models/state";
 import { User } from "../../../../store/users/models/users-state";
 import { UserCard } from "./components/UserCard/UserCard";
 import {fetchUsers } from "../../../../store/users/usersSlice";
+import { UsersSearch } from "./components/UsersSearch";
 
 export const UsersPage = () => {
   const dispatch = useAppDispatch();
@@ -19,9 +20,9 @@ export const UsersPage = () => {
     <Container
       sx={{
         mt: 1,
-        bgcolor: "#ebebeb",
       }}
     >
+      <UsersSearch/>
       <Grid container spacing={2}>
         {users.map((user: User) => (
           <UserCard user={user} />

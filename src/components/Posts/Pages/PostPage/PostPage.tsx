@@ -10,7 +10,7 @@ export const PostPage = () => {
   const posts = useSelector((state: State) => state.posts.posts);
   const users = useSelector((state: State) => state.users.users);
   const { id } = useParams();
-  const postId = +(id ?? 1);
+  const postId = +(id ?? 0);
   const post = posts.find((post: Post) => post.id === postId);
   const user = users.find((user: User) => user.id === post?.userId)
 
@@ -18,11 +18,10 @@ export const PostPage = () => {
     <Container 
       sx={{ 
         mt: 1, 
-        bgcolor: "#ebebeb" 
       }}>
         {post.body}
         <br/>
-       % {user?.name}%
+       %{user?.name}%
     </Container>
   ) : (
     <div>Не найден</div>

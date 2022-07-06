@@ -20,7 +20,7 @@ const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    clearPosts(state, action) {
+    clearPosts(state) {
       state.posts = [];
     },
   },
