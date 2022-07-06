@@ -18,11 +18,11 @@ export const PostPage = () => {
   return post ? (
     <Container>
       <Box>
+       @{user?.name}
+        <br/>
         {post.title}
         <br/>
         {post.body}
-        <br/>
-       @{user?.name}
         <br/>
        {user?.email}
        </Box>
