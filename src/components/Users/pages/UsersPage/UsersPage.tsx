@@ -1,5 +1,5 @@
 import { Container, Grid } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../../store";
 import { State } from "../../../../store/models/state";
@@ -15,6 +15,12 @@ export const UsersPage = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+ 
+  const [value, setValue] = useState("");
+
+  const filteredUsers = users.filter(user => {
+    return user.name.toLowerCase().includes(value.toLowerCase())
+  })
 
   return (
     <Container
@@ -22,9 +28,9 @@ export const UsersPage = () => {
         mt: 1,
       }}
     >
-      <UsersSearch/>
+      <UsersSearch value={value} setValue={setValue}/>
       <Grid container spacing={2}>
-        {users.map((user: User) => (
+        {filteredUsers.map((user: User) => (
           <UserCard user={user} />
         ))}
       </Grid>

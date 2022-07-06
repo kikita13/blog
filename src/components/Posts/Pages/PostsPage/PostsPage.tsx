@@ -23,7 +23,6 @@ export const PostsPage = () => {
 
   return (
     <Container>
-      <button onClick={dispatch(clearPosts as any)}>clear posts</button>
       <PostsSearch value={value} setValue={setValue}/>
       <Container 
         sx={{ 

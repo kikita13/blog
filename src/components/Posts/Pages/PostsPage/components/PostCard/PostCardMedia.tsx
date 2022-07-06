@@ -1,5 +1,5 @@
 import { CardMedia } from "@mui/material";
-import { URLPOST } from "../../../../consts/lunks";
+import { URLPOST } from "../../../../consts/links";
 
 
 export const PostCardMedia = () => {

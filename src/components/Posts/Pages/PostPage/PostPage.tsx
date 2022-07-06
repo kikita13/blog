@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { Container } from "@mui/system";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -15,13 +16,16 @@ export const PostPage = () => {
   const user = users.find((user: User) => user.id === post?.userId)
 
   return post ? (
-    <Container 
-      sx={{ 
-        mt: 1, 
-      }}>
+    <Container>
+      <Box>
+        {post.title}
+        <br/>
         {post.body}
         <br/>
-       %{user?.name}%
+       @{user?.name}
+        <br/>
+       {user?.email}
+       </Box>
     </Container>
   ) : (
     <div>Не найден</div>
