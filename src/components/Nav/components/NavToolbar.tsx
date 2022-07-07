@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { LINKS } from "../consts/links";
 import MenuIcon from "@mui/icons-material/Menu";
 
-export const NavToolbar = ({props}: {props: any}) => {
+export const NavToolbar = ({ handleDrawerToggle }: any) => {
   return (
     <Toolbar>
       <IconButton
         color="inherit"
         aria-label="open drawer"
         edge="start"
-        onClick={props.handleDrawerToggle}
+        onClick={ handleDrawerToggle }
         sx={{ mr: 2, display: { sm: "none" } }}
       >
         <MenuIcon />

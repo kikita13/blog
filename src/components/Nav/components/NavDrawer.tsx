@@ -3,31 +3,10 @@ import { Link } from "react-router-dom";
 import { LINKS } from "../consts/links";
 import { DRAWERWIDTH } from "../consts/width";
 import { Props } from "../model/props";
+import { NavDrawerContent } from "./NavDrawerContent";
 
 
-export const NavDrawer = ({props}: {props: Props}) => {
-
-
-  const drawer = (
-    <Box onClick={props.handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Keket.ink
-      </Typography>
-      <Divider />
-      <List>
-        {LINKS.map((link) => (
-          <Link key={link.url} className="link" to={link.url}>
-            <ListItem disablePadding>
-              <ListItemButton sx={{ textAlign: "center" }}>
-                <ListItemText primary={link.title} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        ))}
-      </List>
-    </Box>
-  );
-  
+export const NavDrawer = (props: Props) => {
   return (
     <Drawer
     container={props.container}
@@ -45,7 +24,9 @@ export const NavDrawer = ({props}: {props: Props}) => {
       },
     }}
   >          
-  {drawer}
+    <NavDrawerContent
+      props={props}
+    />
   </Drawer>
   );
 };

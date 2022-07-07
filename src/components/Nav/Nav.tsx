@@ -9,26 +9,29 @@ import { Props } from "./model/props";
 import { NavDrawer } from "./components/NavDrawer";
 import { NavToolbar } from "./components/NavToolbar";
 
-export const Nav: any = (props: Props) => {
+export const Nav = (props: { window: Window }) => {
   const { window } = props;
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container = window !== undefined ? () => window.document.body : undefined;
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const prop = {
-    container,
-    handleDrawerToggle,
-    mobileOpen
-  }
 
   return (
       <Box>
         <AppBar component="nav">
-          <NavToolbar props={prop}/>
+          <NavToolbar
+            container={container}
+            handleDrawerToggle={handleDrawerToggle}
+            mobileOpen={mobileOpen}
+          />
         </AppBar>
         <Box component="nav">
-          <NavDrawer props={prop}/>
+          <NavDrawer
+            container={container}
+            handleDrawerToggle={handleDrawerToggle}
+            mobileOpen={mobileOpen}
+          />
         </Box>
         <Box>
         <Toolbar />

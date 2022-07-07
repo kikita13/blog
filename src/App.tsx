@@ -5,7 +5,9 @@ import { Nav } from './components/Nav/Nav'
 const App = () => {
   return (
     <div>
-      <Nav></Nav>
+      <Nav
+        window={window}
+      ></Nav>
     </div>
   );
 };

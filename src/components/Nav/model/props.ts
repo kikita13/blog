@@ -5,5 +5,4 @@ export interface Props {
     container: Element | (() => Element | null) | null | undefined;
     handleDrawerToggle: MouseEventHandler<HTMLDivElement> | undefined;
     window?: () => Window;
-    
 }

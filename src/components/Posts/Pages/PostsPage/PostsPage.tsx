@@ -1,6 +1,8 @@
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
+import { useDebounce } from "@react-hook/debounce";
 import { useEffect, useState } from "react";
+import { DebounceInput } from "react-debounce-input";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../../store";
 import { State } from "../../../../store/models/state";
@@ -11,19 +13,24 @@ import { PostsSearch } from "./components/PostsSearch";
 
 export const PostsPage = () => {
   const dispatch = useAppDispatch();
-  const posts = useSelector((state: State) => state.posts.posts);
+  const posts: Post[] = useSelector((state: State) => state.posts.posts);
+  const [debouncedValue, setDebouncedValue] = useDebounce("", 200);
+  const [value, setValue] = useState('');
+
+  const filteredPosts = posts.filter((post: Post) => {
+    return post.title.toLowerCase().includes(debouncedValue.toLowerCase())
+  });
+
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
-  const [value, setValue] = useState("");
-
-  const filteredPosts = posts.filter(post => {
-    return post.title.toLowerCase().includes(value.toLowerCase())
-  })
 
   return (
     <Container>
-      <PostsSearch value={value} setValue={setValue}/>
+      <PostsSearch value={value} setValue={(newValue: string) => {
+        setValue(newValue);
+        setDebouncedValue(newValue);
+      }}/>
       <Container 
         sx={{ 
           mt: 1, 
