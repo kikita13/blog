@@ -1,6 +1,4 @@
-import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import { LINKS } from "../consts/links";
+import { Drawer } from "@mui/material";
 import { DRAWERWIDTH } from "../consts/width";
 import { Props } from "../model/props";
 import { NavDrawerContent } from "./NavDrawerContent";
